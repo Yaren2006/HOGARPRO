@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ConfirmarSolicitudMultimodal from '../components/ConfirmarSolicitudMultimodal.astro';
+---
+<BaseLayout title="Demostración multimodal · HogarPro">
+  <header class="container site-header"><a class="text-link" href="/">← Volver a HogarPro</a></header>
+  <main id="contenido" class="container page">
+    <div class="page-head"><p class="eyebrow">ACTIVIDAD ACADÉMICA</p><h1>Confirmación multimodal</h1><p>Demostración: no envía solicitudes ni crea registros en MySQL.</p></div>
+    <section class="card profile-form" aria-label="Prueba de confirmación">
+      <p>Confirma con el ratón, Enter o Espacio. El botón suena al enviar y reproduce una confirmación de 0,34 segundos al completarse. La vibración requiere un dispositivo compatible y puede ser bloqueada por el navegador.</p>
+      <form class="form-stack" style="margin-top:24px">
+        <label class="radio-row"><input type="checkbox" data-demo-error /> Simular un error (sin señales de éxito)</label>
+        <ConfirmarSolicitudMultimodal demo />
+        <button type="reset" class="btn btn-outline">Reiniciar demostración</button>
+      </form>
+    </section>
+  </main>
+</BaseLayout>

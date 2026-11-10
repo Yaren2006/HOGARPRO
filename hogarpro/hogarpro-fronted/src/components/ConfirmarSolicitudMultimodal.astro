@@ -1,0 +1,27 @@
+---
+interface Props { demo?: boolean }
+const { demo = false } = Astro.props;
+---
+<hp-confirmation data-demo={demo ? 'true' : undefined}>
+  <button type="submit" class="btn btn-primary sensory-button" data-confirm>
+    <span data-symbol aria-hidden="true">✓</span> <span data-label>Confirmar solicitud</span>
+  </button>
+  <p role="status" aria-live="polite" aria-atomic="true" data-status></p>
+  <p role="alert" aria-atomic="true" data-error></p>
+</hp-confirmation>
+<script>
+  import '../lib/confirmation';
+</script>
+<style is:global>
+  hp-confirmation { display:grid; gap:12px; width:100%; max-width:520px; color:#123e40; }
+  .sensory-button { background:#146348; color:white; transition:transform .12s,box-shadow .12s; box-shadow:0 4px 0 #0b3e30; white-space:normal; }
+  .sensory-button:hover { background:#104f3a; }
+  .sensory-button:active:not(:disabled) { transform:translateY(3px) scale(.98); box-shadow:0 1px 0 #0b3e30; }
+  hp-confirmation :focus-visible { outline:3px solid #123e40; outline-offset:4px; }
+  hp-confirmation[data-state="success"] .sensory-button { background:#104f3a; }
+  hp-confirmation[data-state="processing"] [data-symbol] { border:2px solid white; border-right-color:transparent; border-radius:50%; width:18px; height:18px; animation:confirmation-spin .8s linear infinite; }
+  hp-confirmation [data-status], hp-confirmation [data-error] { margin:0; font-size:14px; line-height:1.6; }
+  hp-confirmation [data-error] { color:#8b2020; }
+  @keyframes confirmation-spin { to { transform:rotate(360deg); } }
+  @media(prefers-reduced-motion:reduce) { .sensory-button { transition:none; } .sensory-button:active:not(:disabled) { transform:none; } hp-confirmation [data-symbol] { animation:none!important; } }
+</style>

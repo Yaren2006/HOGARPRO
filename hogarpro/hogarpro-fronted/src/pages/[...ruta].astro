@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import App from '../components/App';
+import ConfirmarSolicitudMultimodal from '../components/ConfirmarSolicitudMultimodal.astro';
+export function getStaticPaths() {
+ return ['ingresar','registro','servicios','profesional','solicitar','mis-solicitudes','solicitud','panel-profesional','perfil','como-funciona'].map(ruta=>({params:{ruta}}));
+}
+const path = '/' + Astro.params.ruta;
+---
+<BaseLayout><App client:load initialPath={path}><ConfirmarSolicitudMultimodal /></App></BaseLayout>

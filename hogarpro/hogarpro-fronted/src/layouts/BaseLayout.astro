@@ -1,0 +1,7 @@
+---
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+interface Props { title?: string }
+const { title = 'HogarPro · Servicios para tu hogar' } = Astro.props;
+---
+<!doctype html><html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content="Encuentra profesionales de gasfitería, electricidad, limpieza y mantenimiento en Tamburco y Abancay. Gestiona tu solicitud de principio a fin en HogarPro."/><link rel="icon" type="image/svg+xml" href="/hogarpro.svg"/><title>{title}</title></head><body><a class="skip-link" href="#contenido">Saltar al contenido</a><slot/><noscript><p class="noscript">Activa JavaScript para consultar profesionales y gestionar solicitudes.</p></noscript></body></html>
